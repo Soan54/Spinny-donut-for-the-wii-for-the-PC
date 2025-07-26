@@ -2,14 +2,16 @@ import math
 import os
 import time
 
-width = 270      # Make the screen much wider
-height = 76      # Make the screen taller
+width = 270
+height = 76
 
 A = 0
 B = 0
 
 while True:
-    os.system('cls' if os.name == 'nt' else 'clear')
+    # Use ANSI escape codes for smoother clearing (works on Windows and Mac/Linux)
+    print('\033[2J\033[H', end='')
+
     screen = [[' ' for _ in range(width)] for _ in range(height)]
 
     for theta in range(0, 628, 7):
@@ -26,7 +28,7 @@ while True:
             y_rot = y * math.cos(B) - z_rot * math.sin(B)
             z_final = y * math.sin(B) + z_rot * math.cos(B)
 
-            K1 = 30    # Make the donut itself much larger
+            K1 = 30
             viewer_distance = 5
             ooz = 1 / (z_final + viewer_distance)
             xp = int(width / 2 + K1 * ooz * x_rot)
@@ -38,11 +40,10 @@ while True:
     for row in screen:
         print(''.join(row))
 
+    print("\n" * 2 + "Made by Soan copyright 2025".center(width))
+
     # Update rotation angles for animation
     A += 0.04
     B += 0.02
 
-    time.sleep(0.03)
-
-    # Print copyright/message at the bottom
-    print("\n" * 2 + "Made by Soan copyright 2025".center(width))
+    time.sleep(0.05)
