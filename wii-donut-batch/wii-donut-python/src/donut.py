@@ -2,8 +2,8 @@ import math
 import os
 import time
 
-width = 120      # Make the screen much wider
-height = 40      # Make the screen taller
+width = 270      # Make the screen much wider
+height = 76      # Make the screen taller
 
 A = 0
 B = 0
