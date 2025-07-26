@@ -43,3 +43,6 @@ while True:
     B += 0.02
 
     time.sleep(0.03)
+
+    # Print copyright/message at the bottom
+    print("\n" * 2 + "Made by Soan copyright 2025".center(width))
